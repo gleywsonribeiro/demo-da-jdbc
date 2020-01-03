@@ -5,20 +5,14 @@
  */
 package model.dao;
 
-import java.util.List;
-import model.entities.Seller;
+import model.dao.impl.SellerDaoJDBC;
 
 /**
  *
  * @author gleyw
  */
-public interface SellerDao {
-
-    void insert(Seller seller);
-
-    void update(Seller seller);
-
-    void deleteById(Integer id);
-
-    List<Seller> findAll();
+public class DaoFactory {
+    public static SellerDao createSellerDao() {
+        return new SellerDaoJDBC();
+    }
 }
