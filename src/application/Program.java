@@ -29,11 +29,17 @@ public class Program {
 
         List<Seller> sellers = sellerDao.findByDepartment(new Department(2, null));
         sellers.forEach((obj) -> System.out.println(obj));
-        
-        
+
         System.out.println("\n=== TEST 3: Seller findAll =====");
 
         sellers = sellerDao.findAll();
         sellers.forEach((obj) -> System.out.println(obj));
+
+        System.out.println("\n=== TEST 4: Seller insert =====");
+
+        Seller s = new Seller(null, "Gleg", "geg@gmial.com", new Date(), 4000.00, new Department(2, null));
+
+        sellerDao.insert(s);
+        System.out.println("Inserido! Novo id = " + s.getId());
     }
 }
